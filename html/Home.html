@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="testAng">
+<head>
+    <!--<link href="../Content/angular-material/angular-material.min.css" rel="stylesheet" />
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-animate/angular-animate.min.js"></script>
+    <script src="../Scripts/angular-aria/angular-aria.min.js"></script>-->
+    
+   
+    <!--<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">-->
+
+    <!--<link href="../Content/angular-material/angular-material.min.css" rel="stylesheet" />-->
+
+    <link href="../Content/angular-material.min.css" rel="stylesheet" />
+    <script src="../Scripts/angular/angular.min.js"></script>
+    <!--<script src="../Scripts/angular.min.js"></script>-->
+    <script src="../Scripts/angular-route.min.js"></script>
+    <script src="../Scripts/angular-animate/angular-animate.min.js"></script>
+    <script src="../Scripts/angular-aria/angular-aria.min.js"></script>
+    <script src="../Scripts/angular-material/angular-material.min.js"></script>
+
+    <!--<link href="../Content/angular-material/angular-material.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>-->
+
+    <!--<script src="../Scripts/angular-material/angular-material.min.js"></script>-->
+    <!--<script src="../Scripts/app.js"></script>
+    <script src="../Scripts/Controllers/HomeController.js"></script>
+    <script src="../asset/modules/studentController.js"></script>-->
+    
+    <title></title>
+    
+</head>
+<body>
+
+    <div ng-controller="HomeCtrl" layout="column" style="height: 500px;" ng-cloak>
+        <div layout="row">
+            <section layout="row" flex>
+
+                <md-sidenav class="md-sidenav-left" md-component-id="left"
+                            md-disable-backdrop md-whiteframe="4">
+
+                    <md-toolbar class="md-theme-indigo">
+                        <h1 class="md-toolbar-tools">Disabled Backdrop</h1>
+                    </md-toolbar>
+
+                    <md-content layout-margin>
+                        <p>
+                            This sidenav is not showing any backdrop, where users can click on it, to close the sidenav.
+                        </p>
+                        <md-button ng-click="toggleLeft()" class="md-accent">
+                            Close this Sidenav
+                        </md-button>
+
+                        <!-- Left Menu -->
+                        <div class="md-padding" id="popupContainer" ng-cloak>
+
+                            <div class="dialog-demo-content" layout="row" layout-wrap layout-margin layout-align="center">
+                                <md-button class="md-primary md-raised" ng-click="showTabDialog($event)">
+                                    Create
+                                </md-button>
+                            </div>
+                            <!--<p class="footer">Note: The <b>Confirm</b> dialog does not use <code>$mdDialog.clickOutsideToClose(true)</code>.</p>-->
+
+                            <div ng-if="status" id="status">
+                                <b layout="row" layout-align="center center" class="md-padding">
+                                    {{status}}
+                                </b>
+                            </div>
+
+
+
+                        </div>
+                    </md-content>
+
+                </md-sidenav>
+
+                <md-content flex layout-padding>
+
+                    <div layout="column" layout-align="top center">
+                        <p>
+                            Developers can also disable the backdrop of the sidenav.<br />
+                            This will disable the functionality to click outside to close the sidenav.
+                        </p>
+
+                        <div>
+                            <md-button ng-click="toggleLeft()" class="md-raised">
+                                Toggle Sidenav
+                            </md-button>
+                        </div>
+
+                    </div>
+
+                </md-content>
+
+            </section>
+        </div>
+
+        <div class="md-padding" id="popupContainer" ng-cloak>
+            <p class="inset">
+                Open a dialog over the app's content. Press escape or click outside to close the dialog and
+                send focus back to the triggering button.
+            </p>
+
+            <div class="dialog-demo-content" layout="row" layout-wrap layout-margin layout-align="center">
+                <md-button class="md-primary md-raised" ng-click="showTabDialog($event)">
+                    Tab Dialog
+                </md-button>
+            </div>
+            <!--<p class="footer">Note: The <b>Confirm</b> dialog does not use <code>$mdDialog.clickOutsideToClose(true)</code>.</p>-->
+
+            <div ng-if="status" id="status">
+                <b layout="row" layout-align="center center" class="md-padding">
+                    {{status}}
+                </b>
+            </div>
+
+            
+
+        </div>
+    </div>
+
+    <!--<div ng-controller="HomeCtrl" class="md-padding" id="popupContainer" ng-cloak>
+        <p class="inset">
+            Open a dialog over the app's content. Press escape or click outside to close the dialog and
+            send focus back to the triggering button.
+        </p>
+
+        <div class="dialog-demo-content" layout="row" layout-wrap layout-margin layout-align="center">
+            <md-button class="md-primary md-raised" ng-click="showAlert($event)">
+                Alert Dialog
+            </md-button>
+            <md-button class="md-primary md-raised" ng-click="showConfirm($event)">
+                Confirm Dialog
+            </md-button>
+            <md-button class="md-primary md-raised" ng-click="showPrompt($event)">
+                Prompt Dialog
+            </md-button>
+            <md-button class="md-primary md-raised" ng-click="showAdvanced($event)">
+                Custom Dialog
+            </md-button>
+            <md-button class="md-primary md-raised" ng-click="showTabDialog($event)">
+                Tab Dialog
+            </md-button>
+            <md-button class="md-primary md-raised" ng-if="listPrerenderedButton" ng-click="showPrerenderedDialog($event)">
+                Pre-Rendered Dialog
+            </md-button>
+        </div>
+        <p class="footer">Note: The <b>Confirm</b> dialog does not use <code>$mdDialog.clickOutsideToClose(true)</code>.</p>
+
+        <div ng-if="status" id="status">
+            <b layout="row" layout-align="center center" class="md-padding">
+                {{status}}
+            </b>
+        </div>
+
+        <div class="dialog-demo-prerendered">
+            <md-checkbox ng-model="listPrerenderedButton">Show Pre-Rendered Dialog</md-checkbox>
+            <p class="md-caption">Sometimes you may not want to compile the dialogs template on each opening.</p>
+            <md-checkbox ng-model="customFullscreen" aria-label="Fullscreen custom dialog">Use full screen mode for custom dialog</md-checkbox>
+            <p class="md-caption">Allows the dialog to consume all available space on small devices</p>
+        </div>
+
+    </div>-->
+
+    
+    <script src="../modules/app.js"></script>
+    <script src="../modules/controllers/home/HomeController.js"></script>
+    <script src="../modules/controllers/student/studentController.js"></script>
+    <!--<script src="../modules/services/studentDataService.js"></script>-->
+</body>
+</html>
